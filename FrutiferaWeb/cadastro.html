@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!-- DECLARAÇÃO DE ARQUIVO HTML5 E IDIOMA ESCOLHIDO -->
+
+<!-- INICIALIZANDO O HEAD -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Frutas</title>
+  <!------- Bootstrap (para que o CSS carregue antes da página) ------->
+  <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .custom-footer {
+      background-color: #9fc730;
+      opacity: 0.9;
+    }
+  </style>
+
+</head>
+<body>
+
+</head>
+<!-- FINALIZANDO O HEAD -->
+
+<!-- INICIALIZANDO O BODY -->
+<body class="d-flex flex-column min-vh-100">
+
+<!-- AQUI É ONDE GUARDO O CABEÇALHO DO PROJETO (HEADER) -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">
+            <img src="src/icon.png" width="30" height="30" alt="Logo">
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link active" href="index.html">Plantio</a>
+                <a class="nav-link" href="cadastro.html">Cadastrar Frutas</a>
+            </div>
+        </div>
+    </nav>
+  </header>
+  <!-- ENCERRAMENTO DO CABEÇALHO (HEADER) -->
+
+  <div class="b-example-divider">
+    <hr class="hr hr-blurry" />
+  </div>
+
+  <!-- INICIALIZANDO O MEU MAIN -->
+
+  <main class="container flex-fill">
+      
+    <!-- Botão de adicionar: Acionar um modal -->
+    <button type="button" class="custom-footer"  id="adicionarButton" name="adicionarButton" data-bs-toggle="modal" data-bs-target="#modal_da_fruteira">+</button>
+
+    <!-- Tabela de listagem -->
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">ID do Registro</th>
+          <th scope="col">Nome Comercial</th>
+          <th scope="col">Nome Botânico</th>
+          <th scope="col">Produtividade Média (Kg)</th>
+          <th scope="col">Início do Plantio</th>
+        </tr>
+      </thead>
+
+
+      <tbody id="fruteiraTBody">
+
+      </tbody>
+
+      
+    </table>
+
+    <!-- Modal de Cadastro de Fruteira (início) -->
+
+    <div class="modal fade" id="modal_da_fruteira" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+           <!-- CABEÇALHO/HEADER DO MODAL (INÍCIO) -->
+
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Fruta</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+          <!-- CABEÇALHO/HEADER DO MODAL (FIM) -->
+          </div>
+
+           <!-- FORMULÁRIO/FORM DO MODAL (INÍCIO) -->
+          <form id="form_da_fruteira">
+
+
+            <!-- BODY DO MODAL (INÍCIO) -->
+            <div class="modal-body">
+
+
+              <div class="mb-3">
+                <label for="nomePopular" class="form-label">Nome Cormecial</label>
+                <input type="text" class="form-control" name="nomePopular" id="nomePopular" placeholder="Nome popular">
+              </div>
+
+
+              <div class="mb-3">
+                <label for="nomeCientifico" class="form-label">Nome Botânico</label>
+                <input type="text" class="form-control" name="nomeCientifico" id="nomeCientifico" placeholder="Nome científico">
+              </div>
+
+
+              <div class="mb-3">
+                <label for="producaoMedia" class="form-label">Produtividade Média (Kg)</label>
+                <input type="number" class="form-control" name="producaoMedia" id="producaoMedia" placeholder="Produção média em KG por safra" min="0" step="0.01">
+              </div>
+
+
+              <div class="mb-3">
+                <label for="dataPlantio" class="form-label">Início do Plantio</label>
+                <input type="text" class="form-control" name="dataPlantio" id="dataPlantio">
+              </div>
+
+            <!-- BODY DO MODAL (FIM) -->
+            </div>
+
+            <!-- FOOTER DO MODAL (INÍCIO) -->
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-danger">Cancelar</button>
+              <button type="submit" class="btn btn-outline-success">Salvar</button>
+
+            <!-- FOOTER DO MODAL (FIM) -->
+            </div>
+
+
+          <!-- FORMULÁRIO/FORM DO MODAL (FIM) -->
+          </form>
+
+        </div>
+
+      </div>
+
+    <!-- Modal de Cadastro de Fruteira (fim) -->
+    </div>
+
+  </main>
+  
+ <!-- rodapé da página -->
+<footer class="custom-footer p-2 text-white bg-opacity-25 text-center">
+  <div class="container">
+    <p class="m-0">&copy; 2026 | Todos os direitos reservados.</p>
+  </div>
+</footer>
+  <!-- Fim do rodapé -->
+
+  <!-- Bootstrap -->
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <!-- ToastFy -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+  <!-- Referenciando o arquivo JavaScript -->
+
+  <script src="./src/cadastro.js" type="module"></script>
+
+<!-- ENCERRANDO O BODY DA PÁGINA HTML -->
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "censoescolarweb",
+  "version": "1.0.0",
+  "description": "Aplicação do Censo Escolar",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rhavy Maia Guedes",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "jquery": "^4.0.0",
+    "toastify-js": "^1.12.0"
+  }
+}
