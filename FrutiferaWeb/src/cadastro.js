@@ -3,6 +3,32 @@
 
 
 
+// pega o botão de zerar listagem pelo ID
+const recomecarButton = document.getElementById('recomecarButton');
+
+recomecarButton.addEventListener('click', () => {
+    // limpa todo o localStorage
+    localStorage.clear();
+
+
+
+    Toastify({
+     text: 'Frutífera zerada com sucesso!',
+     className: 'info',
+     style: {
+      background: 'linear-gradient(to right, #c0c579, #9fc730)',
+    },
+    duration: 1000
+    }).showToast();
+
+
+    // Preciso que os dois estejam em sicronia para o toast aparecer!
+    setTimeout(() => {
+        location.reload();
+    }, 1000);
+
+
+});
 
 
 

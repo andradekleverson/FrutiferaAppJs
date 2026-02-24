@@ -5,10 +5,10 @@ import fruteira_objetojs from "./dataset/registrarfruta.js";
 
 // obter a duração temporal do plantio, começando a partir da data de inicio do plantio:
 const calcularIdade = (dataPlantio) => {
-    const dataAtual = new Date(); // momento presente
-    const dataPlantioDate = new Date(dataPlantio); // string vai virar um objeto Date
+    const dataAtual = moment(); // momento presente
+    const dataPlantioMoment = moment(dataPlantio, "DD/MM/YYYY"); // string do modal vai virar um objeto Moment
 
-    const meses = dataAtual.getMonth() - dataPlantioDate.getMonth();
+    const meses = dataAtual.diff(dataPlantioMoment, 'months');
 
     return meses;
 }

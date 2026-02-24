@@ -59,10 +59,14 @@
   <!-- INICIALIZANDO O MEU MAIN -->
 
   <main class="container flex-fill">
-      
+
+    <!-- Botão de remoção: zerar a lista -->
+    <button type="button" class="custom-footer" id="recomecarButton">⟳</button>      
+
     <!-- Botão de adicionar: Acionar um modal -->
     <button type="button" class="custom-footer"  id="adicionarButton" name="adicionarButton" data-bs-toggle="modal" data-bs-target="#modal_da_fruteira">+</button>
 
+  
     <!-- Tabela de listagem -->
     <table class="table table-hover">
       <thead>
@@ -126,7 +130,7 @@
 
               <div class="mb-3">
                 <label for="dataPlantio" class="form-label">Início do Plantio</label>
-                <input type="text" class="form-control" name="dataPlantio" id="dataPlantio">
+                <input type="text" class="form-control" name="dataPlantio" id="dataPlantio" placeholder="Dia/mês/ano">
               </div>
 
             <!-- BODY DO MODAL (FIM) -->
@@ -135,7 +139,7 @@
             <!-- FOOTER DO MODAL (INÍCIO) -->
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-outline-danger">Cancelar</button>
+              <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
               <button type="submit" class="btn btn-outline-success">Salvar</button>
 
             <!-- FOOTER DO MODAL (FIM) -->
