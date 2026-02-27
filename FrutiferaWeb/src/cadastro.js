@@ -32,7 +32,7 @@ recomecarButton.addEventListener('click', () => {
 
 
 
-
+// permite que o preenchimento do formulário apareça na tabela da página de cadastro:
 const insertRowTBody = (fruteira) => {
 
   let fruteiraTBody = document.getElementById(
@@ -53,19 +53,21 @@ const insertRowTBody = (fruteira) => {
 
 
 
+// buscará no localstorage pela chave 'plantio' e converte a JSON em objeto js:
+let plantio = JSON.parse(localStorage.getItem('plantio')) ?? []; // se for nulo, a gente terá array vazia
 
-let plantio = JSON.parse(localStorage.getItem('plantio')) ?? [];
 
-
-
+// dps que virou um objeto js, é só percorrer o que há dentro dessa array
 for (let fruteira of plantio) {
-  insertRowTBody(fruteira);
+  insertRowTBody(fruteira); // com essa estrutura de repetição, a variável recebe um objeto da array list a cada rodada
 }
 
 
+// guardando o elemento form dentro dessa variável
 let form_da_fruteira = document.getElementById('form_da_fruteira');
 
 
+// no onsubmit, a gente usa ela pra controlar o botão de submit da página web
 form_da_fruteira.onsubmit = (event) => {
   event.preventDefault();
   console.log('Controlando a submissão do browser');
@@ -97,14 +99,16 @@ form_da_fruteira.onsubmit = (event) => {
     dataPlantio: dataPlantio,
   };
 
-  plantio.push(fruteiraJson);
+  plantio.push(fruteiraJson); // o push atualiza a array original com o novo objeto JS
 
+  // aqui armazenamos no local storage
   localStorage.setItem(
     'plantio',
     JSON.stringify(plantio),
-  );
+  ); // a gente localiza a array list e utiliza a função de transformar em JSON string
 
-  // Atualizar a listagem das IEs na tabela.
+
+  // Atualizar a listagem das fruteiras na tabela.
   insertRowTBody(fruteiraJson);
 
   $('#modal_da_fruteira').modal('hide');
